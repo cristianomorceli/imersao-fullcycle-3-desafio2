@@ -5,11 +5,18 @@ Você NÃO precisa utilizar um Cloud Provider como AWS, GCP e Azure para realiza
 Crie uma pasta chamada k8s no seu repositório do github (utilizado no desafio anterior) e informe no campo abaixo.
 
 Backend
+
 kubectl apply -f k8s/backend_deployment.yaml
+
 kubectl apply -f k8s/backend_service.yaml
+
 kubectl port-forward service/backend-service 3000:3000
 
+
 Frontend
+
 kubectl apply -f k8s/frontend_deployment.yaml
+
 kubectl apply -f k8s/frontend_service.yaml
+
 kubectl port-forward service/frontend-service 3001:3001
