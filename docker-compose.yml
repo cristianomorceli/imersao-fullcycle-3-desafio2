@@ -3,6 +3,7 @@ version: "3"
 services:
   app-frontend:
     build: ./frontend
+    image: app-frontend
     entrypoint: ./.docker/entrypoint.sh
     container_name: desafio-fullcycle-3-frontend-app
     ports:
@@ -15,6 +16,7 @@ services:
 
   app-backend:
     build: ./backend
+    image: app-backend
     entrypoint: ./.docker/entrypoint.sh
     container_name: desafio-fullcycle-3-backend-app
     ports:
