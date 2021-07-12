@@ -6,30 +6,38 @@ Crie uma pasta chamada k8s no seu repositório do github (utilizado no desafio a
 
 
 * Criar cluster:
+
 kind create cluster --name=desafio3
 
 * Após criação, settar contexto:
+
 kubectl cluster-info --context kind-desafio3
 
 
 
-* Criação dos Pods e Service do Backend
+* Criação dos Pods e Service do Backend:
+
 kubectl apply -f k8s/backend_deployment.yaml
+
 kubectl apply -f k8s/backend_service.yaml
 
 
-* Criação dos Pods e Service do Frontend
+* Criação dos Pods e Service do Frontend:
+
 kubectl apply -f k8s/frontend_deployment.yaml
+
 kubectl apply -f k8s/frontend_service.yaml
 
 
 * Validar se Pods estão rodando:
+
 kubectl get pods
 
 
-* Testar a Aplicação
+* Testar a Aplicação:
+
 kubectl port-forward service/backend-service 3000:3000
 - Acessar http://localhost:3000/routes
 
-kubectl port-forward service/frontend-service 3001:3001
-- Acessar http://localhost:3001
+kubectl port-forward service/frontend-service 8000:8000
+- Acessar http://localhost:8000
