@@ -6,4 +6,4 @@
 
 npm install
 
-npm run dev
+PORT=3001 npm run dev
