@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
+  labels:
+    app: backend
 spec:
   replicas: 1
   selector:
@@ -15,5 +17,6 @@ spec:
       containers:
         - name: backend
           image: cristianomorceli/full_cycle_backend:1.0
+          resources: {}
           ports:
             - containerPort: 3000
