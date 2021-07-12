@@ -1,11 +1,18 @@
-FROM node:14.15.4-alpine3.12
-WORKDIR /usr/src/app_routes_front/
+#build
+FROM node:14.15.4-alpine3.12 as build
 
-COPY . .
-RUN npm install --frozen-lockfile
+USER node
+
+RUN mkdir -p /home/node/app
+
+WORKDIR /home/node/app
+
+COPY --chown=node package*.json ./
+
+COPY --chown=node ./ .
+
 RUN npm run build
 
-ENV PORT=3001
 EXPOSE 3001
 
-ENTRYPOINT npm run start
+CMD ["npm", "run", "start"]
